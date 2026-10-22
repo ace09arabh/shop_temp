@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopsy - Dark Mode Collection</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #101010;
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 65px;
+    background: #080808;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    border-bottom: 1px solid #292929;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #ed626c;
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    padding: 55px 15px;
+    background: linear-gradient(120deg, #222b2b, #151515, #252525);
+    border-bottom: 1px solid #292929;
+}
+
+.hero h1 {
+    color: #e66b75;
+    font-size: 36px;
+    margin: 15px 0;
+}
+
+.hero p {
+    color: #cccccc;
+    font-size: 13px;
+}
+
+/* PRODUCT GRID */
+.products {
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 0 18px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #171717;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: #555555;
+    box-shadow: 0 8px 20px #00000080;
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    padding: 12px;
+    cursor: pointer;
+    display: block;
+}
+
+.product-info {
+    padding: 12px 15px 18px;
+}
+
+.product-info h3 {
+    font-size: 15px;
+    margin: 0 0 8px;
+}
+
+.price {
+    color: #ed626c;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* PRODUCT DETAIL PAGE */
+#GetDetail {
+    display: none;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.back-btn {
+    background: #292929;
+    color: white;
+    border: 1px solid #444;
+    padding: 10px 18px;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.detail-box {
+    display: flex;
+    gap: 35px;
+    background: #171717;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.detail-images {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.detail-images img {
+    width: 50%;
+    height: 350px;
+    object-fit: contain;
+    background: #111;
+    border-radius: 6px;
+}
+
+.detail-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.detail-info h2 {
+    margin-top: 5px;
+}
+
+.detail-info p {
+    color: #cccccc;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.detail-price {
+    color: #ed626c;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+select {
+    background: #252525;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px;
+    width: 120px;
+    margin: 10px 0;
+}
+
+.action-btn {
+    height: 42px;
+    width: 145px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin: 8px 8px 8px 0;
+    border-radius: 4px;
+}
+
+.cart-btn {
+    background: #e76b24;
+}
+
+.buy-btn {
+    background: #278747;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
+
+/* FOOTER */
+footer {
+    background: #080808;
+    border-top: 1px solid #292929;
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+    color: #aaa;
+    font-size: 13px;
+}
+
+footer h3 {
+    color: #ed626c;
+}
+
+footer a {
+    display: block;
+    text-decoration: none;
+    color: #aaa;
+    margin: 10px 0;
+}
+
+footer a:hover {
+    color: white;
+}
+
+#message {
+    color: #71d58a;
+    margin-top: 12px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 750px) {
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 0 10px;
+    }
+
+    .product-card img {
+        height: 155px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .nav-links a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .detail-box {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .detail-images img {
+        height: 220px;
+    }
+
+    #GetDetail {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.login-container {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px;
+    background: #101010;
+}
+
+.login-box {
+    background: #1b1b1b;
+    color: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.login-box h1 {
+    color: #ed626c;
+    margin-bottom: 25px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    background: #292929;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.login-btn {
+    width: 100%;
+    height: 42px;
+    margin-top: 15px;
+    background: #ed626c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #c94d57;
+}
+
+.login-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+.login-links a {
+    color: #ed626c;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#loginMessage {
+    color: #71d58a;
+    font-size: 14px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">SHOPSY</div>
+
+    <div class="nav-links">
+        <a href="#" onclick="showHome(); return false;">Home</a>
+        <a href="#products" onclick="showHome(); return false;">Shop</a>
+<a href="#" onclick="showLogin(); return false;">Login</a>
+        <a href="#footer">About</a>
+        <a href="#footer">Contact</a>
+    </div>
+</div>
+
+<!-- HOME PAGE -->
+<div id="FrontPage">
+
+    <div class="hero">
+        <h1>Shopsy Mega Collection</h1>
+        <p>Premium Product for Every Range</p>
+    </div>
+
+    <div class="products" id="products">
+
+        <div class="product-card" onclick="showProduct(0)">
+            <img src="img/g1.jpeg" alt="Sports Shoes">
+            <div class="product-info">
+                <h3>Sports Shoes</h3>
+                <p class="price">₹349.00</p>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="showProduct(1)">
+            <img src="img/h1.jpeg" alt="Running Shoes">
+            <div class="product-info">
+                <h3>Headphone</h3>
+                <p class="price">₹599.00</p>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="showProduct(2)">
+            <img src="img/l1.png" alt="Hiking Shoes">
+            <div class="product-info">
+                <h3>Laptop And Phone Cover</h3>
+                <p class="price">₹499.00</p>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="showProduct(3)">
+            <img src="img/m1.jpeg" alt="High Top Shoes">
+            <div class="product-info">
+                <h3>Smart Phone</h3>
+                <p class="price">₹9999.00</p>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="showProduct(4)">
+            <img src="img/r.jpeg" alt="Casual Shoes">
+            <div class="product-info">
+                <h3>Pc Ram</h3>
+                <p class="price">₹5999.00</p>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="showProduct(5)">
+            <img src="img/cl.jpeg" alt="Leather Shoes">
+            <div class="product-info">
+                <h3>T-Shirt</h3>
+                <p class="price">₹899.00</p>
+            </div>
+        </div>
+
+<div class="product-card" onclick="showProduct(8)">
+            <img src="img/j1.jpeg" alt="Leather Shoes">
+            <div class="product-info">
+                <h3>Jeans</h3>
+                <p class="price">₹899.00</p>
+            </div>
+        </div>
+
+
+        <div class="product-card" onclick="showProduct(6)">
+            <img src="img/c.jpeg" alt="Uncle Chipps">
+            <div class="product-info">
+                <h3>Uncle Chipps</h3>
+                <p class="price">₹20.00</p>
+            </div>
+        </div>
+
+        <div class="product-card" onclick="showProduct(7)">
+            <img src="img/pen.jpeg" alt="Pen">
+            <div class="product-info">
+                <h3>Pendrive</h3>
+                <p class="price">₹500.00</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- PRODUCT DETAILS PAGE -->
+<div id="GetDetail">
+
+    <button class="back-btn" onclick="showHome()">← Back to Shop</button>
+
+    <div class="detail-box">
+
+        <div class="detail-images">
+            <img id="detailImage1" src="img/c.jpeg" alt="Product">
+            <img id="detailImage2" src="img/c2.jpeg" alt="Product">
+        </div>
+
+        <div class="detail-info">
+            <h2 id="detailName">Uncle Chipps</h2>
+
+            <p id="detailDescription">
+                Enjoy this delicious snack, perfect for your snack time.
+            </p>
+
+            <h3>Total Price</h3>
+            <div class="detail-price" id="detailPrice">₹20.00</div>
+
+            <label for="quantity">Select Quantity:</label><br>
+            <select id="quantity" onchange="updateTotal()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <p id="totalPrice">Total: ₹20.00</p>
+
+            <button class="action-btn cart-btn" onclick="addToCart()">
+                Add to Cart
+            </button>
+
+            <button class="action-btn buy-btn" onclick="showLogin()">
+                Buy Now
+            </button>
+
+            <p id="message"></p>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="Login" style="display:none;">
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Sign In</h1>
+
+            <input type="email" placeholder="Enter Email ID" required>
+            <input type="password" placeholder="Enter Password" required>
+
+            <button class="login-btn" onclick="loginUser()">Login</button>
+
+            <div class="login-links">
+                <a href="#" onclick="showSignup(); return false;">Sign Up</a>
+                <a href="#" onclick="forgotPassword(); return false;">Forgot Password?</a>
+            </div>
+
+            <p id="loginMessage"></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer id="footer">
+    <div>
+        <h3>Shopsy</h3>
+        <p>Classic-themed premium shopping collection.</p>
+    </div>
+
+    <div>
+        <h3>Quick Links</h3>
+        <a href="#" onclick="showHome(); return false;">Home</a>
+        <a href="#products" onclick="showHome(); return false;">Shop Products</a>
+    </div>
+
+    <div>
+        <h3>Contact</h3>
+        <p>Email: support@shopsy.com</p>
+        <p>Online Shopping Store</p>
+    </div>
+</footer>
+
+<script>
+var products = [
+    {
+        name: "Sports Shoes",
+        image1: "img/g1.jpeg",
+        image2: "img/g1.jpeg",
+        price: 349,
+        description: "Comfortable sports shoes designed for everyday activities and an active lifestyle."
+    },
+    {
+        name: "Headphone",
+        image1: "img/h1.jpeg",
+	image2: "img/h2.jpeg",
+        price: 599,
+        description: "Enjoy immersive sound quality with comfortable headphones designed for music, gaming, and calls."
+    },
+    {
+        name: "Laptop And Phone Cover",
+        image1: "img/l1.png",
+	image2: "img/l2.png",
+        price: 499,
+        description: "Protect your laptop from scratches, dust, and minor damage with a durable and stylish laptop cover.Keep your smartphone safe from scratches and everyday wear with a trendy and protective phone cover."
+    },
+    {
+        name: "Smart Phone",
+        image1: "img/m1.jpeg",
+	image2: "img/m2.jpeg",
+        price: 9999,
+        description: "Experience smooth performance, stunning visuals, and smart features in one powerful device."
+    },
+    {
+        name: "Pc Ram",
+        image1: "img/r.jpeg",
+        image2: "img/r.jpeg",
+        price: 5999,
+        description: "Improve your computer's multitasking performance with reliable and high-speed RAM."
+    },
+    {
+        name: "T-Shirt",
+        image1: "img/cl.jpeg",
+        image2: "img/cl.jpeg",
+        price: 899,
+        description: "Upgrade your everyday style with a comfortable and fashionable T-shirt."
+    },
+    {
+        name: "Uncle Chipps",
+        image1: "img/c.jpeg",
+        image2: "img/c2.jpeg",
+        price: 20,
+        description: "Uncle Chipps is a popular potato chips brand in India, known for its crispy texture and delicious taste."
+    },
+    {
+        name: "Pendrive",
+        image1: "img/pen.jpeg",
+        image2: "img/pen.jpeg",
+        price: 500,
+        description: "- Store, transfer, and carry your important files easily with a compact USB pendrive.."
+    },
+{
+        name: "Jeans",
+        image1: "img/j1.jpeg",
+        image2: "img/j2.jpeg",
+        price: 899,
+        description: "Stylish and comfortable jeans designed to give you a perfect fit and a trendy look for any occasion."
+    }
+];
+
+var selectedProduct = 0;
+
+function showProduct(index) {
+    selectedProduct = index;
+
+    var product = products[index];
+
+    document.getElementById("FrontPage").style.display = "none";
+    document.getElementById("GetDetail").style.display = "block";
+
+    document.getElementById("detailName").innerText = product.name;
+   document.getElementById("detailImage1").src = product.image1;
+
+document.getElementById("detailImage2").src = product.image2;
+
+// If both image paths are same, show only one image
+if (product.image1 === product.image2) {
+    document.getElementById("detailImage2").style.display = "none";
+} else {
+    document.getElementById("detailImage2").style.display = "block";
+}
+    document.getElementById("detailDescription").innerText = product.description;
+
+    document.getElementById("quantity").value = "1";
+    document.getElementById("message").innerText = "";
+
+    updateTotal();
+
+    window.scrollTo(0, 0);
+}
+
+function showHome() {
+    document.getElementById("GetDetail").style.display = "none";
+    document.getElementById("FrontPage").style.display = "block";
+
+    window.scrollTo(0, 0);
+}
+
+function updateTotal() {
+    var quantity = Number(document.getElementById("quantity").value);
+    var price = products[selectedProduct].price;
+    var total = price * quantity;
+
+    document.getElementById("detailPrice").innerText =
+        "₹" + price.toFixed(2);
+
+    document.getElementById("totalPrice").innerText =
+        "Total: ₹" + total.toFixed(2);
+}
+
+function addToCart() {
+    var quantity = Number(document.getElementById("quantity").value);
+    var product = products[selectedProduct];
+    var total = product.price * quantity;
+
+    document.getElementById("message").innerText =
+        product.name + " added to cart! Quantity: " +
+        quantity + ", Total: ₹" + total.toFixed(2);
+}
+
+
+function hideAllPages() {
+    document.getElementById("FrontPage").style.display = "none";
+    document.getElementById("GetDetail").style.display = "none";
+    document.getElementById("Login").style.display = "none";
+}
+
+function showLogin() {
+    hideAllPages();
+    document.getElementById("Login").style.display = "block";
+    window.scrollTo(0, 0);
+}
+
+function showHome() {
+    hideAllPages();
+    document.getElementById("FrontPage").style.display = "block";
+    window.scrollTo(0, 0);
+}
+
+function loginUser() {
+    document.getElementById("loginMessage").innerText =
+        "Something went wrong.Please try again later.";
+}
+
+function showSignup() {
+    alert("Something went wrong while creating your account.");
+}
+
+function forgotPassword() {
+    alert("Unable to reset your password right now.");
+}
+
+
+</script>
+
+</body>
+</html>
